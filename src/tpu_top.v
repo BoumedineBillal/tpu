@@ -65,18 +65,18 @@ module tpu_top (
         if (mode == 2'b10) begin
             case (counter)
                 3'd0: begin
-                    sys_in_a0 = A[0]; // A00
-                    sys_in_b0 = B[0]; // B00
+                    sys_in_a0 = A[3]; // A00 (First loaded)
+                    sys_in_b0 = B[3]; // B00 (First loaded)
                 end
                 3'd1: begin
-                    sys_in_a0 = A[1]; // A01
-                    sys_in_a1 = A[2]; // A10
-                    sys_in_b0 = B[2]; // B10 
-                    sys_in_b1 = B[1]; // B01
+                    sys_in_a0 = A[2]; // A01
+                    sys_in_a1 = A[1]; // A10
+                    sys_in_b0 = B[1]; // B10 
+                    sys_in_b1 = B[2]; // B01
                 end
                 3'd2: begin
-                    sys_in_a1 = A[3]; // A11
-                    sys_in_b1 = B[3]; // B11
+                    sys_in_a1 = A[0]; // A11 (Last loaded)
+                    sys_in_b1 = B[0]; // B11 (Last loaded)
                 end
             endcase
         end
