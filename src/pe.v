@@ -28,7 +28,8 @@ module pe (
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             out_c <= 0;
-            // distinct optimization: out_a and out_b do not need reset
+            out_a <= 0;
+            out_b <= 0;
         end else begin
             if (chain_in_en) begin
                 // Chain Mode: Shift data from neighbor
